@@ -58,7 +58,11 @@
     <string name="failed_to_check_enrollment_status">Failed to check enrollment status: %1$s</string>
     <string name="failed_to_add_course">Failed to add course: %1$s</string>
     <string name="empty_body">once you add a course, you will be able to SEE it here.</string>
+    <string name="no_data">No Data Available!</string>
 
+    <string name="user_data_added">User Data Added</string>
+    <string name="error_adding_user_data">Error adding user data</string>
+    <string name="aria_of_interest">Aria Of Interest</string>
 
 
 </resources>

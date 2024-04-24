@@ -3,15 +3,13 @@ package com.android.rahbar.advisor.profile
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import com.android.rahbar.advisor.R
 import com.android.rahbar.advisor.databinding.ActivityProfileBinding
-import com.android.rahbar.advisor.databinding.ActivitySearchCourseBinding
-import com.android.rahbar.advisor.loginsignup.fragment.RegisterFragment
 import com.android.rahbar.advisor.mycourses.MyCoursesActivity
+import com.android.rahbar.advisor.mysearchedcourse.MySearchCoursesActivity
+import com.google.android.material.chip.Chip
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
@@ -64,6 +62,9 @@ class MyProfileActivity : AppCompatActivity() {
         }
     }
 
+
+
+
     private fun updateUIWithData(data: Map<String, Any>) {
         binding.fnameTv.text = buildString {
         append("First Name : ")
@@ -77,6 +78,33 @@ class MyProfileActivity : AppCompatActivity() {
         append("Email : ")
         append(data["email"] as? String ?: "")
     }
+
+        val searchTerms = data["searchHistory"] as? String ?: ""
+        displaySearchTerms(searchTerms.split(","))
+    }
+
+
+
+    private fun displaySearchTerms(searchTerms: List<String>) {
+
+        binding.chipGroup.removeAllViews()
+
+        for (term in searchTerms) {
+            val chip = Chip(binding.chipGroup.context).apply {
+                text = term
+                isClickable = true
+                isCheckable = false
+                setOnClickListener { navigateToMySearchCoursesActivity(term) }
+            }
+            binding.chipGroup.addView(chip)
+        }
+    }
+
+    private fun navigateToMySearchCoursesActivity(searchTerm: String) {
+        val intent = Intent(this, MySearchCoursesActivity::class.java).apply {
+            putExtra("searchTerm", searchTerm)
+        }
+        startActivity(intent)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

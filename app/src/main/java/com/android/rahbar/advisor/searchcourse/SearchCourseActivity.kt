@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.rahbar.advisor.R
 import com.android.rahbar.advisor.course.CourseListAdapter
 import com.android.rahbar.advisor.databinding.ActivitySearchCourseBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,7 +26,6 @@ class SearchCourseActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySearchCourseBinding
     private val viewModel: SearchCourseViewModel by viewModels()
     private lateinit var adapter: CourseListAdapter
-    private var searchText = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +82,9 @@ class SearchCourseActivity : AppCompatActivity() {
             findViewById<EditText>(androidx.appcompat.R.id.search_src_text).apply {
                 setHintTextColor(Color.WHITE)
             }
+            val searchEditText = findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+            searchEditText.setHintTextColor(Color.WHITE)
+
             setIconifiedByDefault(false)
             requestFocus()
             queryHint = getString(R.string.search_courses)
@@ -88,31 +92,57 @@ class SearchCourseActivity : AppCompatActivity() {
                 override fun onQueryTextSubmit(query: String): Boolean {
                     hideKeyboard()
                     searchItem.collapseActionView()
-                    performSearch(query)
+                    setIconifiedByDefault(true)
+                    performSearch(query, searchView)
                     return true
                 }
 
                 override fun onQueryTextChange(newText: String): Boolean {
-                    // Optional: Perform search as user types
                     return true
                 }
             })
+
+
             setOnQueryTextFocusChangeListener { _, hasFocus ->
                 if (!hasFocus) {
                     hideKeyboard()
                 }
             }
         }
-        searchView.setOnCloseListener {
-            searchText = ""
-            false
-        }
         return true
     }
 
-    private fun performSearch(query: String) {
-        searchText = query
+
+    fun updateSearchHistory(searchString: String) {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+
+        val userDocRef = FirebaseFirestore.getInstance().collection("users").document(userId!!)
+
+        userDocRef.get().addOnSuccessListener { documentSnapshot ->
+            if (documentSnapshot.exists()) {
+                var currentHistory = documentSnapshot.getString("searchHistory") ?: ""
+
+                currentHistory += if (currentHistory.isEmpty()) {
+                    searchString
+                } else {
+                    ", $searchString"
+                }
+
+                userDocRef.update("searchHistory", currentHistory)
+                    .addOnSuccessListener {
+                        println("Search history updated successfully")
+                    }
+                    .addOnFailureListener { e ->
+                        println("Error updating search history: ${e.message}")
+                    }
+            }
+        }
+    }
+
+    private fun performSearch(query: String, searchView: SearchView) {
         viewModel.fetchSearchCourseList(query)
+        updateSearchHistory(query)
+        searchView.setQuery("", false)
     }
 
     private fun hideKeyboard() {

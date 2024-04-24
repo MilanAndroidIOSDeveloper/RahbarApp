@@ -12,18 +12,12 @@ import androidx.fragment.app.viewModels
 import com.android.frogtest.BioMetricManager
 import com.android.frogtest.BioMetricPrompt
 import com.android.rahbar.advisor.R
-import com.android.rahbar.advisor.course.Course
-import com.android.rahbar.advisor.course.Instructor
 import com.android.rahbar.advisor.course.MainActivity
-import com.android.rahbar.advisor.coursedetail.CourseAddRepository
 import com.android.rahbar.advisor.databinding.FragmentRegisterBinding
 import com.android.rahbar.advisor.loginsignup.AuthViewModel
 import com.android.rahbar.advisor.loginsignup.Resource
-import com.android.rahbar.advisor.loginsignup.SignInActivity
-import com.android.rahbar.advisor.loginsignup.SignupActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -132,12 +126,14 @@ class RegisterFragment : Fragment() {
             val userData = hashMapOf(
                 "firstname" to binding.firstnameEditText.text.toString(),
                 "lastname" to binding.lastnameEditText.text.toString(),
-                "email" to binding.emailEditText.text.toString()
+                "email" to binding.emailEditText.text.toString(),
+                "searchHistory" to ""
             )
             val userCoursesRef = db.collection("users").document(user.uid)
             userCoursesRef.set(userData)
-                .addOnSuccessListener { Log.d(TAG, "User Data Added") }
-                .addOnFailureListener { e -> Log.w(TAG, "Error adding user data", e) }
+                .addOnSuccessListener { Log.d(TAG, getString(R.string.user_data_added)) }
+                .addOnFailureListener { e -> Log.w(TAG,
+                    getString(R.string.error_adding_user_data), e) }
         }
         navigateToMainActivity()
     }
