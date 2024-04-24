@@ -1,0 +1,72 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/accentColor</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:textColorPrimary">@color/white</item>
+
+
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="MyEditTextStyle">
+        <item name="android:textCursorDrawable">@color/black</item>
+    </style>
+
+    <style name="AppTheme.NavigationView" parent="Widget.Design.NavigationView">
+        <!-- Customize navigation view attributes here -->
+        <item name="android:background">@color/white</item>
+        <item name="android:textColorPrimary">@color/black</item> <!-- Title text color -->
+
+        <item name="android:textColor">@color/black</item>
+        <!-- Add more customizations as needed -->
+    </style>
+
+    <!-- Custom action bar style -->
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <!-- Set action bar background color -->
+        <item name="background">@color/primaryColor</item>
+        <!-- Set title and subtitle text color -->
+        <item name="titleTextStyle">@style/MyActionBarTitle</item>
+        <item name="subtitleTextStyle">@style/MyActionBarSubtitle</item>
+        <!-- Set color of the back arrow icon -->
+        <item name="colorControlNormal">@color/white</item>
+<!--        &lt;!&ndash; Set color of action menu items &ndash;&gt;-->
+<!--        <item name="android:actionMenuTextColor">@color/white</item>-->
+    </style>
+
+    <!-- Custom action bar title text style -->
+    <style name="MyActionBarTitle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Custom action bar subtitle text style -->
+    <style name="MyActionBarSubtitle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AlertDialogCustom" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <!-- Customize the button color -->
+        <item name="colorAccent">@color/black</item>
+
+        <item name="buttonBarPositiveButtonStyle">@style/AlertDialogButtonCustom</item>
+
+        <item name="buttonBarButtonStyle">@style/AlertDialogButtonCustom</item>
+
+
+
+    </style>
+
+    <style name="AlertDialogButtonCustom" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/greenOrignal</item>
+    </style>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <!-- Customize the hint text color -->
+        <item name="android:textColorHint">@android:color/white</item>
+    </style>
+</resources>

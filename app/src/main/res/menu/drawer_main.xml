@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/my_profile"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/menu_my_courses"
+            android:title="@string/my_courses" />
+        <item
+            android:id="@+id/menu_logout"
+            android:title="@string/logout" />
+    </group>
+
+</menu>

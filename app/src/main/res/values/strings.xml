@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Rahbar</string>
+    <string name="action_settings">Settings</string>
+    <string name="don_t_have_an_account_sign_up_here">Don\'t have an account? Sign up here.</string>
+    <string name="have_an_account_login_here">Already have an account? Login here.</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="biometric_authentication_error_too_many_attempts_try_again_later">Biometric authentication error: Too many attempts. Try again later.</string>
+    <string name="biometric_authentication_error_fingerprint_operation_cancelled_by_user">Biometric authentication error: Fingerprint operation cancelled by user.</string>
+    <string name="no_internet_available">No Internet Available</string>
+    <string name="login_failed">Login failed</string>
+    <string name="sign_up_failed">Sign up failed</string>
+    <string name="verify_that_it_s_you">Verify that it\'s you</string>
+    <string name="use_your_fingerprint_to_continue">Use your fingerprint to continue</string>
+    <string name="cancel">Cancel</string>
+    <string name="biometric_authentication_succeeded">Biometric authentication succeeded</string>
+    <string name="fingerprint_hardware_not_available">Fingerprint hardware not available.</string>
+    <string name="biometric_authentication_error">Biometric authentication error: %1$s</string>
+    <string name="biometric_authentication_failed">Biometric Authentication Failed</string>
+    <string name="logout">LogOut</string>
+    <string name="yes">Yes</string>
+    <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit?</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
+    <string name="error">Api Error</string>
+    <string name="enroll_now">Enroll Now</string>
+    <string name="enrolled">Enrolled</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="search">Search Course</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="valid_firstname">Enter Valid First Name</string>
+    <string name="valid_lastname">Enter Valid Last Name</string>
+    <string name="valid_email">Enter Valid Email Address</string>
+    <string name="valid_password">Enter Valid Password</string>
+    <string name="first_names">First Name :</string>
+    <string name="last_names">Last Name :</string>
+    <string name="emails">Email :</string>
+    <string name="my_courses">My Courses</string>
+    <string name="courses">Courses</string>
+    <string name="yess">Yes</string>
+    <string name="course_added">Course added</string>
+    <string name="error_adding_course">Error adding course</string>
+    <string name="error_checking_course_enrollment">Error checking course enrollment</string>
+    <string name="course_details">Course Details</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="logins">Login</string>
+    <string name="register">Register</string>
+    <string name="error_fetching_user_courses">Error fetching user courses: %1$s</string>
+    <string name="my_profile">My profile</string>
+    <string name="error_getting_user_data">Error getting user data</string>
+    <string name="search_courses">Search Courses</string>
+    <string name="profile">Profile</string>
+    <string name="r_a_h_b_e_r">R A H B E R</string>
+    <string name="failed_to_check_enrollment_status">Failed to check enrollment status: %1$s</string>
+    <string name="failed_to_add_course">Failed to add course: %1$s</string>
+    <string name="empty_body">once you add a course, you will be able to SEE it here.</string>
+
+
+
+</resources>

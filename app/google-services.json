@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "693691984848",
+    "project_id": "rahbar-af7a4",
+    "storage_bucket": "rahbar-af7a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693691984848:android:fac177945b6bfe7c9b27d5",
+        "android_client_info": {
+          "package_name": "com.android.rahbar.advisor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt5T_HdS8C3cwMaOZGnUtGc4ImhsIZe1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
